@@ -1,0 +1,16 @@
+name: Run-tests
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: akto-api-security/run-scan@v1.0.12
+        with:
+          AKTO_DASHBOARD_URL: "https://app.akto.io/"
+          AKTO_API_KEY: ${{secrets.AKTO_API_KEY}}
+          AKTO_TEST_ID: "671360307747c276bee974e2"
